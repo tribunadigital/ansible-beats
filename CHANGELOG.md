@@ -1,4 +1,8 @@
 # Changelog
+## 9.2.4
+
+- 9.2.4 as default version.
+
 ## 9.2.3
 
 - 9.2.3 as default version.
