@@ -4,7 +4,7 @@
   apt:
     name: apt-transport-https
     state: present
-    cache_valid_time: 86400
+    cache_valid_time: "{{ beats_apt_cache_valid_time }}"
   when: use_repository | bool
   register: beat_install
   until: beat_install is succeeded
@@ -72,7 +72,7 @@
     name: >-
       {{ beat }}{% if beats_version is defined and beats_version|length>0 %}={{ beats_version }}{% endif %}
     state: present
-    cache_valid_time: 86400
+    cache_valid_time: "{{ beats_apt_cache_valid_time }}"
   register: beat_install
   until: beat_install is succeeded
   when: use_repository | bool

@@ -162,6 +162,7 @@ Supported variables are as follows:
 - **version_lock** (_Defaults to `false`_): Locks the installed version if set to true, thus preventing other processes from updating. This will not impact the roles ability to update the beat on subsequent runs (it unlocks and re-locks if required).
 - **use_repository** (_Defaults to `true`_): Use elastic repo for yum or apt if true. If false, a custom custom_package_url must be provided.
 - **beats_add_repository** (_Defaults to `{use_repository}`_): Install elastic repo for yum or apt if true. If false, the present repositories will be used. Useful if you already have beats packages in your repo.
+- **beats_apt_cache_valid_time** (_Defaults to `0`_): Debian/Ubuntu only. Passed to the `apt` module `cache_valid_time` option when installing the beat package. Default `0` forces `apt update` on every run so newly released patch versions are always picked up. Set to `86400` (or any positive integer in seconds) to skip cache refresh if it is younger than that many seconds.
 - **start_service** (_Defaults to `true`_): service will be started if true, false otherwise.
 - **restart_on_change** (_Defaults to `true`_): Changes to configuration or installed versions, will result in a restart if true.
 - **daemon_args** (_Applicable to version 1.x of beats_): Allows run time params to be passed to beats.

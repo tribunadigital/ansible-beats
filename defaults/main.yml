@@ -5,6 +5,7 @@ oss_version: false
 version_lock: false
 use_repository: true
 beats_add_repository: "{{ use_repository }}"
+beats_apt_cache_valid_time: 0
 start_service: true
 restart_on_change: true
 daemon_args: ""
