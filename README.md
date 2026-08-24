@@ -34,7 +34,7 @@ This role provides a generic means of installing Elastic supported Beats
 Create your Ansible playbook with your own tasks, and include the role beats. You will have to have this repository accessible within the context of playbook.
 
 ```sh
-ansible-galaxy install elastic.beats,v9.5.1
+ansible-galaxy install elastic.beats,v9.5.2
 ```
 
 Then create your playbook yaml adding the role beats.
@@ -47,7 +47,7 @@ hosts: localhost
 roles:
   - role: elastic.beats
 vars:
-  beats_version: 9.5.1
+  beats_version: 9.5.2
   beat: filebeat
   beat_conf:
     filebeat:
@@ -58,12 +58,12 @@ vars:
             - /var/log/*.log
 ```
 
-The above installs Filebeat 9.5.1 on the hosts 'localhost'.
+The above installs Filebeat 9.5.2 on the hosts 'localhost'.
 
 **Notes**:
 
 - Beats default version is described in [`beats_version`](https://github.com/elastic/ansible-beats/blob/main/defaults/main.yml#L4). You can override this variable in your playbook to install another version.
-  While we are testing this role only with one 7.x and one 6.x version (respectively [9.5.1](https://github.com/elastic/ansible-beats/blob/main/defaults/main.yml#L4) and [6.8.23](https://github.com/elastic/ansible-beats/blob/main/test/integration/standard-6x.yml#L7) at the time of writing), this role should work with others version also in most cases.
+  While we are testing this role only with one 7.x and one 6.x version (respectively [9.5.2](https://github.com/elastic/ansible-beats/blob/main/defaults/main.yml#L4) and [6.8.23](https://github.com/elastic/ansible-beats/blob/main/test/integration/standard-6x.yml#L7) at the time of writing), this role should work with others version also in most cases.
 - Beat product is described in `beat` variable. While currently tested Beats are Filebeat, Metricbeat & Packetbeat, this role should work also with other member of [The Beats Family](https://www.elastic.co/products/beats) in most cases.
 
 ## Testing
@@ -158,7 +158,7 @@ Supported variables are as follows:
 
 - **beat** (_MANDATORY_): Beat product. Supported values are: "filebeat", "metricbeat" & "packetbeat" (others beats from [The Beats Family](https://www.elastic.co/products/beats) should work in most cases but aren't currently tested).
 - **beat_conf** (_MANDATORY_): Beat Configuration. Should be defined as a map.
-- **beats_version** (_Defaults to `9.5.1`_): Beats version.
+- **beats_version** (_Defaults to `9.5.2`_): Beats version.
 - **version_lock** (_Defaults to `false`_): Locks the installed version if set to true, thus preventing other processes from updating. This will not impact the roles ability to update the beat on subsequent runs (it unlocks and re-locks if required).
 - **use_repository** (_Defaults to `true`_): Use elastic repo for yum or apt if true. If false, a custom custom_package_url must be provided.
 - **beats_add_repository** (_Defaults to `{use_repository}`_): Install elastic repo for yum or apt if true. If false, the present repositories will be used. Useful if you already have beats packages in your repo.
