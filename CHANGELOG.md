@@ -1,4 +1,8 @@
 # Changelog
+## 9.5.4
+
+- 9.5.4 as default version.
+
 ## 9.5.3
 
 - 9.5.3 as default version.
